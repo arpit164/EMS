@@ -1,0 +1,78 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Ignore the real application configuration files
+*.properties
+*.yml
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Logs
+*.log
+logs/
+spring.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Environment variables and secrets
+.env          # Environment files (e.g., database credentials, API keys)
+.env.*        # Multiple environment files (e.g., `.env.dev`, `.env.prod`)
+*.key         # Key files (e.g., private keys, encryption keys)
+*.pem         # Certificate files
+*.crt         # Certificate files
+*.p12         # PKCS12 certificate files
+secrets/      # Any folder named `secrets` (common for sensitive data)
+
+# OS-specific files
+.DS_Store      # macOS
+Thumbs.db      # Windows
+
+# Dependency cache
+node_modules/  # If you use Node.js for anything in the backend
+*.jar          # Exclude individual JAR files if stored in the repository
+*.war
+
+# Backup and archive files
+*.bak
+*.old
+*.swp
+*.swo
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Git configuration
+*.orig         # Merge conflict backup files
+*.rej          # Patch rejection files
