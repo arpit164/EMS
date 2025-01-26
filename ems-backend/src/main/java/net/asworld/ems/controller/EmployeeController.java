@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class EmployeeController {
 
-    public EmployeeService employeeService;
+    private EmployeeService employeeService;
 
     //add employee
     @PostMapping
@@ -35,5 +35,13 @@ public class EmployeeController {
     public ResponseEntity<List<EmployeeDto>> getAllEmployees(){
         List<EmployeeDto> employees = employeeService.getAllEmployees();
         return ResponseEntity.ok(employees);
+    }
+
+    //update employee by id
+    @PutMapping("{id}")
+    public ResponseEntity<EmployeeDto> updateEmployeeById(@PathVariable("id") Long employeeId,
+                                                          @RequestBody  EmployeeDto updatedEmployee){
+        EmployeeDto employeeDto = employeeService.updateEmployeeById(employeeId, updatedEmployee);
+        return ResponseEntity.ok(employeeDto);
     }
 }
