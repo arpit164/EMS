@@ -3,6 +3,7 @@ package net.asworld.ems.service.impl;
 import lombok.AllArgsConstructor;
 import net.asworld.ems.dto.EmployeeDto;
 import net.asworld.ems.entity.Employee;
+import net.asworld.ems.exception.ResourceNotFoundException;
 import net.asworld.ems.mapper.EmployeeMapper;
 import net.asworld.ems.repository.EmployeeRepository;
 import net.asworld.ems.service.EmployeeService;
@@ -19,5 +20,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = EmployeeMapper.mapToEmployee(employeeDto);
         Employee savedEmployee = employeeRepository.save(employee);
         return EmployeeMapper.mapToEmployeeDto(savedEmployee);
+    }
+
+    @Override
+    public EmployeeDto getEmployeeById(Long employeeId) {
+
+        Employee employee = employeeRepository.findById(employeeId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Employee is not exists with the id: " + employeeId));
+
+        return EmployeeMapper.mapToEmployeeDto(employee);
     }
 }
